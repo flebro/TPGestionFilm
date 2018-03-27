@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TPGestionFilm.Resources"
+                    xmlns:views="clr-namespace:TPGestionFilm.Views"
+                    xmlns:viewmodels="clr-namespace:TPGestionFilm.ViewModels">
+
+    <DataTemplate DataType="{x:Type viewmodels:ViewModelMovieList}">
+        <views:ListMovies/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodels:ViewModelGenreList}">
+        <views:ListGenres/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodels:ViewModelMovie}">
+        <views:EditMovie/>
+    </DataTemplate>
+
+</ResourceDictionary>

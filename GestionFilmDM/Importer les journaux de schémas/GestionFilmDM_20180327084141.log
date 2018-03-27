@@ -1,0 +1,84 @@
+27/03/2018 10:41:41	Ce journal contient des informations sur l'importation du schéma dans le projet 'GestionFilmDM' sur l'ordinateur 'B16-06' par l'utilisateur 'FLEBRO'.
+27/03/2018 10:41:41	L'importation du schéma de base de données a commencé.
+27/03/2018 10:41:48	Collecte des informations d'identification à la base de données
+27/03/2018 10:41:48	Collecte des options de la base de données
+27/03/2018 10:41:48	Collecte des utilisateurs
+27/03/2018 10:41:48	Collecte des rôles
+27/03/2018 10:41:48	Collecte des rôles d'application
+27/03/2018 10:41:48	Collecte des appartenances aux rôles
+27/03/2018 10:41:48	Collecte des groupes de fichiers
+27/03/2018 10:41:49	Collecte des catalogues de recherche en texte intégral
+27/03/2018 10:41:49	Collecte des assemblys
+27/03/2018 10:41:49	Collecte des certificats
+27/03/2018 10:41:49	Collecte des clés asymétriques
+27/03/2018 10:41:49	Collecte des clés symétriques
+27/03/2018 10:41:49	Collecte des clés symétriques chiffrées
+27/03/2018 10:41:49	Collecte des schémas
+27/03/2018 10:41:49	Collecte des collections de schémas XML
+27/03/2018 10:41:49	Collecte des types de données définis par l'utilisateur
+27/03/2018 10:41:49	Collecte des types définis par l'utilisateur
+27/03/2018 10:41:49	Collecte des types de tables
+27/03/2018 10:41:49	Collecte des clés uniques des types de tables
+27/03/2018 10:41:49	Collecte des clés primaires pour les types de tables
+27/03/2018 10:41:49	Collecte d'index pour types de tables
+27/03/2018 10:41:49	Collecte des contraintes de validation pour les types de tables
+27/03/2018 10:41:49	Collecte des contraintes par défaut pour les types de tables
+27/03/2018 10:41:49	Collecte des fonctions de partition
+27/03/2018 10:41:49	Collecte des schémas de partition
+27/03/2018 10:41:49	Collecte des fonctions
+27/03/2018 10:41:49	Collecte de fonctions cryptées
+27/03/2018 10:41:49	Collecte des agrégats
+27/03/2018 10:41:49	Collecte des procédures
+27/03/2018 10:41:49	Collecte de procédures cryptées
+27/03/2018 10:41:49	Collecte des tables
+27/03/2018 10:41:49	Collecte des clés primaires
+27/03/2018 10:41:49	Collecte des contraintes uniques
+27/03/2018 10:41:49	Collecte des clés étrangères
+27/03/2018 10:41:49	Collecte des contraintes par défaut
+27/03/2018 10:41:49	Collecte des contraintes de validation
+27/03/2018 10:41:49	Collecte des vues
+27/03/2018 10:41:49	Collecte de vues cryptées
+27/03/2018 10:41:49	Collecte des index
+27/03/2018 10:41:49	Collecte des statistiques
+27/03/2018 10:41:49	Collecte des listes de mots vides d'index de recherche en texte intégral
+27/03/2018 10:41:49	Collecte des listes de propriétés de recherche
+27/03/2018 10:41:49	Collecte des propriétés de recherche
+27/03/2018 10:41:49	Collecte des index de recherche en texte intégral
+27/03/2018 10:41:49	Collecte des index de la banque de colonnes
+27/03/2018 10:41:49	Collecte des index spatiaux
+27/03/2018 10:41:49	Collecte des index XML
+27/03/2018 10:41:49	Collecte d'index XML sélectifs
+27/03/2018 10:41:49	Collecte de déclencheurs cryptés
+27/03/2018 10:41:49	Collecte des déclencheurs
+27/03/2018 10:41:49	Collecte des déclencheurs chiffrés et DDL CLR
+27/03/2018 10:41:49	Collecte des DDL triggers
+27/03/2018 10:41:49	Collecte des synonymes
+27/03/2018 10:41:49	Collecte des valeurs par défaut
+27/03/2018 10:41:49	Collecte des liaisons UDDT de contrainte de données
+27/03/2018 10:41:49	Collecte des règles
+27/03/2018 10:41:49	Collecte des liaisons UDDT de contrainte de données
+27/03/2018 10:41:49	Collecte des types de messages
+27/03/2018 10:41:49	Collecte des files d'attente
+27/03/2018 10:41:49	Collecte des contrats
+27/03/2018 10:41:49	Collecte des services
+27/03/2018 10:41:49	Collecte des notifications d'événements
+27/03/2018 10:41:49	Collecte des liaisons de service distant
+27/03/2018 10:41:49	Collecte des priorités de Service Broker
+27/03/2018 10:41:49	Collecte des signatures
+27/03/2018 10:41:49	Collection des options de compression de données
+27/03/2018 10:41:49	Collecte des types de séquences
+27/03/2018 10:41:49	Collecte des stratégies de sécurité
+27/03/2018 10:41:49	Collecter les clés de chiffrement de colonne
+27/03/2018 10:41:49	Collecte des clés principales de colonne
+27/03/2018 10:41:49	Collecte des sources de données externes
+27/03/2018 10:41:49	Collecte des formats de fichier externes
+27/03/2018 10:41:49	Collecte des tables externes
+27/03/2018 10:41:49	Collection des propriétés étendues
+27/03/2018 10:41:49	Collecte des informations d'identification
+27/03/2018 10:41:49	Collecte des connexions
+27/03/2018 10:41:49	Collecte des audits du serveur
+27/03/2018 10:41:50	Analyse du projet à la recherche des éléments en double
+27/03/2018 10:41:50	Fin du traitement des éléments en double
+27/03/2018 10:41:50	Importation de la base de données terminée.
+27/03/2018 10:41:50	Un résumé de l'opération d'importation a été enregistré à l'emplacement suivant : C:\Users\flebro\source\repos\TPGestionFilm\GestionFilmDM\Importer les journaux de schémas\GestionFilmDM_20180327084141.log.
+27/03/2018 10:41:50	Cliquez sur Terminer pour continuer...
