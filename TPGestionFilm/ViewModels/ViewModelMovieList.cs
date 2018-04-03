@@ -15,6 +15,8 @@ namespace TPGestionFilm.ViewModels
 
         private ObservableCollection<Movie> _FilteredItemSource;
 
+        private string _SearchedText;
+
         #endregion
 
         #region Properties
@@ -25,16 +27,50 @@ namespace TPGestionFilm.ViewModels
             set { SetProperty(nameof(FilteredItemSource), ref _FilteredItemSource, value); }
         }
 
+        public string SearchedText
+        {
+            get { return _SearchedText; }
+            set { SetProperty(nameof(SearchedText), ref _SearchedText, value); }
+        }
+
         #endregion
 
         #region Constructors
 
         public ViewModelMovieList(GestionFilmDMEntities context) : base(context)
         {
-
+            this.PropertyChanged += ViewModelMovieList_PropertyChanged;
         }
 
         #endregion
 
+        #region Methods
+
+        private void DoFilter()
+        {
+            FilteredItemSource.Clear();
+            if (SearchedText?.Length > 0)
+            {
+                string searchedText = SearchedText.ToLower();
+                FilteredItemSource = new ObservableCollection<Movie>(ItemSource.Where(m => m.Name.ToLower().Contains(searchedText)));
+            }
+            else
+            {
+                FilteredItemSource = new ObservableCollection<Movie>(ItemSource);
+            }
+        }
+        #endregion
+
+        #region EventListener
+
+        private void ViewModelMovieList_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(SearchedText))
+            {
+                DoFilter();
+            }
+        }
+
+        #endregion
     }
 }
