@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace MVVMutils.ViewModels
 {
-    public abstract class ViewModelShellBase : ViewModelBase
+    public abstract class ViewModelShellBase : ViewModelNavigable
     {
 
         #region Fields
 
-        private IViewModelLocator _Locator;
         private IViewModel _DisplayedView;
 
         #endregion
@@ -29,9 +28,9 @@ namespace MVVMutils.ViewModels
 
         #region Constructors
 
-        public ViewModelShellBase(IViewModelLocator locator)
+        public ViewModelShellBase(Navigator navigator) : base(navigator)
         {
-            _Locator = locator;
+            navigator.NavigationAsked += Navigator_NavigationAsked;
         }
 
         #endregion
@@ -42,12 +41,7 @@ namespace MVVMutils.ViewModels
 
         protected void DefaultNavigate_Execute<T>(object parameter) where T : IViewModel
         {
-            IViewModel viewModel = _Locator.GetViewModel<T>(parameter);
-            if (viewModel is IViewModelParametrable parametrable)
-            {
-                parametrable.setParameter(parameter);
-            }
-            DisplayedView = viewModel;
+            Navigator.Navigate<T>(this, parameter);
         }
 
         protected bool DefaultNavigate_CanExecute<T>(object parameter) where T : IViewModel
@@ -61,6 +55,15 @@ namespace MVVMutils.ViewModels
         }
 
         #endregion
+
+        #endregion
+
+        #region EventListeners
+
+        private void Navigator_NavigationAsked(object sender, Navigator.NavigationAskedEventArgs e)
+        {
+            DisplayedView = e.ViewModel;
+        }
 
         #endregion
 

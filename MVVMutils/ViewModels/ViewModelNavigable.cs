@@ -10,11 +10,13 @@ namespace MVVMutils.ViewModels
     /// <summary>
     ///     Classe de base pour les vue-modèles.
     /// </summary>
-    public abstract class ViewModelBase : ObservableObject, IViewModel
+    public abstract class ViewModelNavigable : ObservableObject, IViewModel
     {
         #region Fields
 
         private object _Header;
+
+        protected Navigator Navigator;
 
         #endregion
 
@@ -27,6 +29,15 @@ namespace MVVMutils.ViewModels
         {
             get => _Header;
             protected set => SetProperty(nameof(Header), ref _Header, value);
+        }
+
+        #endregion
+
+        #region Constructor
+
+        public ViewModelNavigable(Navigator navigator)
+        {
+            Navigator = navigator;
         }
 
         #endregion

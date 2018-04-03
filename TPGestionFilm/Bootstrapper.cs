@@ -27,10 +27,20 @@ namespace TPGestionFilm
 
             #region Registerations
 
-            // On effectue les registerations
+            #region Framework
+
+            // On effectue les registerations necessaire au "framework"
             container.RegisterSingleton<IViewModelLocator, UnityViewModelLocator>();
+            container.RegisterSingleton<Navigator>();
+
+            #endregion
+
+            #region Data
+
             container.RegisterType<GestionFilmDMEntities>();
 
+            #endregion
+            
             #region Services
 
             container.RegisterType<IMoviePlayer, StubMoviePlayer>();

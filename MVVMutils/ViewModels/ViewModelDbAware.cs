@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMutils.Core;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MVVMutils.ViewModels
 {
-    public abstract class ViewModelDbAware<T> : ViewModelBase
+    public abstract class ViewModelDbAware<T> : ViewModelNavigable
         where T : DbContext
     {
         #region Fields
@@ -28,7 +29,7 @@ namespace MVVMutils.ViewModels
 
         #region Constructors
 
-        public ViewModelDbAware(T context)
+        public ViewModelDbAware(Navigator navigator, T context) : base(navigator)
         {
             Context = context;
         }

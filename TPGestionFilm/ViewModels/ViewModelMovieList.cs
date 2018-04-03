@@ -1,4 +1,5 @@
 ﻿using DataLib;
+using MVVMutils.Core;
 using MVVMutils.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace TPGestionFilm.ViewModels
 
         private string _SearchedText;
 
+        private Movie _SelectedMovie;
+
         #endregion
 
         #region Properties
@@ -33,11 +36,17 @@ namespace TPGestionFilm.ViewModels
             set { SetProperty(nameof(SearchedText), ref _SearchedText, value); }
         }
 
+        public Movie SelectedMovie
+        {
+            get { return _SelectedMovie; }
+            set { SetProperty(nameof(SelectedMovie), ref _SelectedMovie, value); }
+        }
+
         #endregion
 
         #region Constructors
 
-        public ViewModelMovieList(GestionFilmDMEntities context) : base(context)
+        public ViewModelMovieList(Navigator navigator, GestionFilmDMEntities context) : base(navigator, context)
         {
             this.PropertyChanged += ViewModelMovieList_PropertyChanged;
         }
@@ -68,6 +77,10 @@ namespace TPGestionFilm.ViewModels
             if (e.PropertyName == nameof(SearchedText))
             {
                 DoFilter();
+            }
+            else if(e.PropertyName == nameof(SelectedMovie) && SelectedMovie != null)
+            {
+                Navigator.Navigate<ViewModelMovie>(this, SelectedMovie);
             }
         }
 

@@ -51,7 +51,7 @@ namespace TPGestionFilm.ViewModels
 
         #region Constructor
 
-        public ViewModelShell(IViewModelLocator viewModelLocator) : base(viewModelLocator)
+        public ViewModelShell(Navigator navigator) : base(navigator)
         {
             InitCommands();
         }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\flebro\source\repos\TPGestionFilm\TPGestionFilm\obj\Debug\
+D:\Workspace\dotNet\repos\TPGestionFilm\TPGestionFilm\obj\Debug\
 TPGestionFilm
 none
 false
 DEBUG;TRACE
-C:\Users\flebro\source\repos\TPGestionFilm\TPGestionFilm\App.xaml
+D:\Workspace\dotNet\repos\TPGestionFilm\TPGestionFilm\App.xaml
 5107853025
 
-20-450105496
-26638456928
+201446158576
+26-886499054
 Resources\ViewsDictionnary.xaml;Views\EditMovie.xaml;Views\ListGenres.xaml;Views\ListMovies.xaml;Views\Shell.xaml;
 
-False
+True
 

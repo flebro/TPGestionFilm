@@ -62,7 +62,7 @@ namespace MVVMutils.ViewModels
 
         #region Constructor
 
-        public ViewModelEdition(T context) : base(context)
+        public ViewModelEdition(Navigator navigator, T context) : base(navigator, context)
         {
             StartEditCommand = new DelegateCommand(o=> InEditMode = true, o => !InEditMode);
             SaveCommand = new DelegateCommand(Save_Execute, o => InEditMode);

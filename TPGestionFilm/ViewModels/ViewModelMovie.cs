@@ -15,23 +15,36 @@ namespace TPGestionFilm.ViewModels
         #region Fields
 
         private IMoviePlayer _Player;
-
+        
         private DelegateCommand _WatchCommand;
+
+        private DelegateCommand _HomeCommand;
+
+        #endregion
+
+        #region Properties
 
         public DelegateCommand WatchCommand
         {
             get { return _WatchCommand; }
-            set { SetProperty(nameof(WatchCommand), ref _WatchCommand, value); }
+            private set { SetProperty(nameof(WatchCommand), ref _WatchCommand, value); }
+        }
+
+        public DelegateCommand HomeCommand
+        {
+            get { return _HomeCommand; }
+            private set { SetProperty(nameof(HomeCommand), ref _HomeCommand, value); }
         }
 
         #endregion
 
         #region Constructor
 
-        public ViewModelMovie(GestionFilmDMEntities context, IMoviePlayer moviePlayer) : base(context)
+        public ViewModelMovie(Navigator navigator, GestionFilmDMEntities context, IMoviePlayer moviePlayer) : base(navigator, context)
         {
             _Player = moviePlayer;
             WatchCommand = new DelegateCommand(Watch_Execute, Watch_CanExecute);
+            HomeCommand = new DelegateCommand(o => Navigator.Navigate<ViewModelMovieList>(this));
         }
 
         #endregion

@@ -9,22 +9,50 @@ namespace MVVMutils.Core
 {
     public class Navigator
     {
-        public event EventHandler<NavigationAskedEventArgs<>> NavigationAsked;
-        
-        public void Navigate<T>(IViewModel source, object parameter) where T : IViewModel
+        #region Events
+
+        public event EventHandler<NavigationAskedEventArgs> NavigationAsked;
+
+        #endregion
+
+        #region Fields
+
+        private IViewModelLocator _ViewModelLocator;
+
+        #endregion
+
+        #region Constructor
+
+        public Navigator(IViewModelLocator viewModelLocator)
         {
-            NavigationAsked(source, new NavigationAskedEventArgs<T>(parameter));
+            _ViewModelLocator = viewModelLocator;
         }
 
-        public class NavigationAskedEventArgs<T> : EventArgs
-        {
-            public object Parameter { get; private set; }
+        #endregion
 
-            public NavigationAskedEventArgs(object parameter)
+        #region Methods
+
+        public void Navigate<T>(IViewModel source, object parameter = null) where T : IViewModel
+        {
+            IViewModel viewModel = _ViewModelLocator.GetViewModel<T>(parameter);
+            NavigationAsked(source, new NavigationAskedEventArgs(viewModel));
+        }
+
+        #endregion
+
+        #region Inner Classes
+
+        public class NavigationAskedEventArgs : EventArgs
+        {
+            public IViewModel ViewModel { get; private set; }
+
+            public NavigationAskedEventArgs(IViewModel viewModel)
             {
-                this.Parameter = parameter;
+                this.ViewModel = viewModel;
             }
         }
+
+        #endregion
 
     }
 }
