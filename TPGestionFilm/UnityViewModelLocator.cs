@@ -1,4 +1,4 @@
-﻿using MVVMutils.Navigation;
+﻿using MVVMutils.Core;
 using MVVMutils.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using Unity;
 
 namespace TPGestionFilm
 {
-    public class UnityViewModelBuilder : IViewModelBuilder
+    public class UnityViewModelLocator : IViewModelLocator
     {
         #region Fields
 
@@ -19,14 +19,14 @@ namespace TPGestionFilm
 
         #region Constructors
 
-        public UnityViewModelBuilder(IUnityContainer container)
+        public UnityViewModelLocator(IUnityContainer container)
         {
             _container = container;
         }
 
         #endregion
 
-        #region IViewModelBuilder
+        #region IViewModelLocator
 
         public IViewModel GetViewModel<T>(object parameter) where T : IViewModel
         {

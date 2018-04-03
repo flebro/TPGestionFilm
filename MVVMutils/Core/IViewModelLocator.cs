@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVVMutils.Navigation
+namespace MVVMutils.Core
 {
-    public interface IViewModelBuilder
+    public interface IViewModelLocator
     {
         IViewModel GetViewModel<T>(object parameter) where T : IViewModel;
     }

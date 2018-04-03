@@ -1,4 +1,4 @@
-﻿using MVVMutils.Navigation;
+﻿using MVVMutils.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace MVVMutils.ViewModels
 
         #region Fields
 
-        private IViewModelBuilder _ViewModelBuilder;
+        private IViewModelLocator _Locator;
         private IViewModel _DisplayedView;
 
         #endregion
@@ -29,9 +29,9 @@ namespace MVVMutils.ViewModels
 
         #region Constructors
 
-        public ViewModelShellBase(IViewModelBuilder navigator)
+        public ViewModelShellBase(IViewModelLocator locator)
         {
-            _ViewModelBuilder = navigator;
+            _Locator = locator;
         }
 
         #endregion
@@ -40,9 +40,9 @@ namespace MVVMutils.ViewModels
 
         #region Generic Commands
 
-        public void Navigate_Execute<T>(object parameter) where T : IViewModel
+        protected void DefaultNavigate_Execute<T>(object parameter) where T : IViewModel
         {
-            IViewModel viewModel = _ViewModelBuilder.GetViewModel<T>(parameter);
+            IViewModel viewModel = _Locator.GetViewModel<T>(parameter);
             if (viewModel is IViewModelParametrable parametrable)
             {
                 parametrable.setParameter(parameter);
@@ -50,9 +50,14 @@ namespace MVVMutils.ViewModels
             DisplayedView = viewModel;
         }
 
-        public bool Navigate_CanExecute<T>(object parameter) where T : IViewModel
+        protected bool DefaultNavigate_CanExecute<T>(object parameter) where T : IViewModel
         {
             return !(DisplayedView is T);
+        }
+
+        protected DelegateCommand CreateDefaultNavigateCommand<T>() where T : IViewModel
+        {
+            return new DelegateCommand(DefaultNavigate_Execute<T>, DefaultNavigate_CanExecute<T>);
         }
 
         #endregion

@@ -51,13 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DelegateCommand.cs" />
-    <Compile Include="Core\IAlerter.cs" />
+    <Compile Include="Core\IViewModelLocator.cs" />
     <Compile Include="Core\ObservableObject.cs" />
-    <Compile Include="ViewModels\IViewModelBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ViewModels\IViewModelParametrable.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelDbAware.cs" />
     <Compile Include="ViewModels\ViewModelEdition.cs" />
     <Compile Include="ViewModels\ViewModelList.cs" />
     <Compile Include="ViewModels\ViewModelShellBase.cs" />

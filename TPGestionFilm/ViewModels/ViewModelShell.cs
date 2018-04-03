@@ -1,5 +1,4 @@
 ﻿using MVVMutils.Core;
-using MVVMutils.Navigation;
 using MVVMutils.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -52,7 +51,7 @@ namespace TPGestionFilm.ViewModels
 
         #region Constructor
 
-        public ViewModelShell(IViewModelBuilder viewModelBuilder) : base(viewModelBuilder)
+        public ViewModelShell(IViewModelLocator viewModelLocator) : base(viewModelLocator)
         {
             InitCommands();
         }
@@ -63,9 +62,9 @@ namespace TPGestionFilm.ViewModels
 
         private void InitCommands()
         {
-            _NavigateHome = new DelegateCommand(Navigate_Execute<ViewModelMovieList>, Navigate_CanExecute<ViewModelMovieList>);
-            _NavigateSettings = new DelegateCommand(Navigate_Execute<ViewModelGenreList>, Navigate_CanExecute<ViewModelGenreList>);
-            _NavigateMovie = new DelegateCommand(Navigate_Execute<ViewModelMovie>, Navigate_CanExecute<ViewModelMovie>);
+            _NavigateHome = CreateDefaultNavigateCommand<ViewModelMovieList>();
+            _NavigateSettings = CreateDefaultNavigateCommand<ViewModelGenreList>();
+            _NavigateMovie = CreateDefaultNavigateCommand<ViewModelMovie>();
         }
 
         #endregion

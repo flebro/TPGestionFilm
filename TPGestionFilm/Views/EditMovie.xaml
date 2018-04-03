@@ -12,7 +12,21 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0"  Content="Enregistrer" Width="Auto" HorizontalAlignment="Right"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Retour" Width="Auto" />
+            <Button Content="Visionner" Command="{Binding WatchCommand}" Width="Auto" />
+            <Button Content="Editer" Command="{Binding StartEditCommand}" Width="Auto" />
+            <Button Content="Enregistrer" Command="{Binding SaveCommand}" Width="Auto" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="60*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <!--<Button Grid.Row="0"  Content="Enregistrer" Width="Auto" HorizontalAlignment="Right"/>
 
         <Grid  Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -45,7 +59,7 @@
                 <TextBlock Text="Visionné" Grid.Column="0" Grid.Row="5"/>
                 
             </Grid>
-        </Grid>
+        </Grid>-->
     </Grid>
         
 </UserControl>
