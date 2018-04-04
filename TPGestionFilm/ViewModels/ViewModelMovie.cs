@@ -18,8 +18,6 @@ namespace TPGestionFilm.ViewModels
         
         private DelegateCommand _WatchCommand;
 
-        private DelegateCommand _HomeCommand;
-
         #endregion
 
         #region Properties
@@ -30,12 +28,6 @@ namespace TPGestionFilm.ViewModels
             private set { SetProperty(nameof(WatchCommand), ref _WatchCommand, value); }
         }
 
-        public DelegateCommand HomeCommand
-        {
-            get { return _HomeCommand; }
-            private set { SetProperty(nameof(HomeCommand), ref _HomeCommand, value); }
-        }
-
         #endregion
 
         #region Constructor
@@ -44,7 +36,6 @@ namespace TPGestionFilm.ViewModels
         {
             _Player = moviePlayer;
             WatchCommand = new DelegateCommand(Watch_Execute, Watch_CanExecute);
-            HomeCommand = new DelegateCommand(o => Navigator.Navigate<ViewModelMovieList>(this));
         }
 
         #endregion

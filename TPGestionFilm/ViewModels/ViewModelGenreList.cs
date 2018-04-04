@@ -11,6 +11,16 @@ namespace TPGestionFilm.ViewModels
 {
     public class ViewModelGenreList : ViewModelList<GestionFilmEntities, Genre>
     {
+        #region Fields
+
+        private DelegateCommand _HomeCommand;
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+
         #region Constructors
 
         public ViewModelGenreList(Navigator navigator, GestionFilmEntities context) : base(navigator, context)
