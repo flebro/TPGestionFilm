@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMutils", "MVVMutils\MVVMutils.csproj", "{0C74D90A-A98E-4415-AFB2-9E9391CEBBB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "DataLib\DataLib.csproj", "{6ADB5449-15CB-4C24-9381-E5572D0FEA60}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GestionFilmDM", "GestionFilmDM\GestionFilmDM.sqlproj", "{DEB98808-A6A9-41B2-9766-492671A44B22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPGestionFilm", "TPGestionFilm\TPGestionFilm.csproj", "{E57D10BF-E8C3-4635-89BC-959920B1A4F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "DataLib\DataLib.csproj", "{6ADB5449-15CB-4C24-9381-E5572D0FEA60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{0C74D90A-A98E-4415-AFB2-9E9391CEBBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C74D90A-A98E-4415-AFB2-9E9391CEBBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C74D90A-A98E-4415-AFB2-9E9391CEBBB8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6ADB5449-15CB-4C24-9381-E5572D0FEA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6ADB5449-15CB-4C24-9381-E5572D0FEA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6ADB5449-15CB-4C24-9381-E5572D0FEA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6ADB5449-15CB-4C24-9381-E5572D0FEA60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DEB98808-A6A9-41B2-9766-492671A44B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DEB98808-A6A9-41B2-9766-492671A44B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEB98808-A6A9-41B2-9766-492671A44B22}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -35,6 +31,10 @@ Global
 		{E57D10BF-E8C3-4635-89BC-959920B1A4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E57D10BF-E8C3-4635-89BC-959920B1A4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E57D10BF-E8C3-4635-89BC-959920B1A4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ADB5449-15CB-4C24-9381-E5572D0FEA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ADB5449-15CB-4C24-9381-E5572D0FEA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ADB5449-15CB-4C24-9381-E5572D0FEA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ADB5449-15CB-4C24-9381-E5572D0FEA60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

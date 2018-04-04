@@ -23,8 +23,9 @@ namespace DataLib
         private string _Data; public string Data { get { return _Data; } set { SetProperty(nameof(Data), ref _Data, value); } }
         private string _Poster; public string Poster { get { return _Poster; } set { SetProperty(nameof(Poster), ref _Poster, value); } }
         private bool _Viewed; public bool Viewed { get { return _Viewed; } set { SetProperty(nameof(Viewed), ref _Viewed, value); } }
-        private int _Genre; public int Genre { get { return _Genre; } set { SetProperty(nameof(Genre), ref _Genre, value); } }
+        private int _Genre_Id; public int Genre_Id { get { return _Genre_Id; } set { SetProperty(nameof(Genre_Id), ref _Genre_Id, value); } }
+        private System.DateTime _AddDate; public System.DateTime AddDate { get { return _AddDate; } set { SetProperty(nameof(AddDate), ref _AddDate, value); } }
     
-        private Genre _Genre1; public virtual Genre Genre1 { get { return _Genre1; } set { SetProperty(nameof(Genre1), ref _Genre1, value); } }
+        private Genre _Genre; public virtual Genre Genre { get { return _Genre; } set { SetProperty(nameof(Genre), ref _Genre, value); } }
     }
 }

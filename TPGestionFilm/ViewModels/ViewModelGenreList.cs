@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace TPGestionFilm.ViewModels
 {
-    public class ViewModelGenreList : ViewModelList<GestionFilmDMEntities, Genre>
+    public class ViewModelGenreList : ViewModelList<GestionFilmEntities, Genre>
     {
         #region Constructors
 
-        public ViewModelGenreList(Navigator navigator, GestionFilmDMEntities context) : base(navigator, context)
+        public ViewModelGenreList(Navigator navigator, GestionFilmEntities context) : base(navigator, context)
         {
         }
 

@@ -51,8 +51,9 @@ namespace TPGestionFilm.ViewModels
 
         #region Constructor
 
-        public ViewModelShell(Navigator navigator) : base(navigator)
+        public ViewModelShell(Navigator navigator, ViewModelMovieList home) : base(navigator)
         {
+            DisplayedView = home;
             InitCommands();
         }
 

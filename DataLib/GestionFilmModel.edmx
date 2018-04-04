@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GestionFilmDMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="GestionFilmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Genre">
           <Key>
             <PropertyRef Name="Id" />
@@ -24,7 +24,8 @@
           <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Poster" Type="nvarchar(max)" />
           <Property Name="Viewed" Type="bit" Nullable="false" />
-          <Property Name="Genre" Type="int" Nullable="false" />
+          <Property Name="Genre_Id" Type="int" Nullable="false" />
+          <Property Name="AddDate" Type="date" Nullable="false" />
         </EntityType>
         <Association Name="FK_Movie_Genre">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
@@ -34,11 +35,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Movie">
-              <PropertyRef Name="Genre" />
+              <PropertyRef Name="Genre_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GestionFilmDMModelStoreContainer">
+        <EntityContainer Name="GestionFilmModelStoreContainer">
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Movie_Genre" Association="Self.FK_Movie_Genre">
@@ -50,14 +51,14 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="GestionFilmDMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="GestionFilmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Genre">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_Genre" FromRole="Genre" ToRole="Movie" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_Movie_Genre" FromRole="Genre" ToRole="Movie" />
         </EntityType>
         <EntityType Name="Movie">
           <Key>
@@ -71,8 +72,9 @@
           <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Poster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Viewed" Type="Boolean" Nullable="false" />
-          <Property Name="Genre" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Genre1" Relationship="Self.FK_Movie_Genre" FromRole="Movie" ToRole="Genre" />
+          <Property Name="Genre_Id" Type="Int32" Nullable="false" />
+          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Genre" Relationship="Self.FK_Movie_Genre" FromRole="Movie" ToRole="Genre" />
         </EntityType>
         <Association Name="FK_Movie_Genre">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
@@ -82,16 +84,16 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Movie">
-              <PropertyRef Name="Genre" />
+              <PropertyRef Name="Genre_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GestionFilmDMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Genre" EntityType="Self.Genre" />
-          <EntitySet Name="Movie" EntityType="Self.Movie" />
+        <EntityContainer Name="GestionFilmEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Genres" EntityType="Self.Genre" />
+          <EntitySet Name="Movies" EntityType="Self.Movie" />
           <AssociationSet Name="FK_Movie_Genre" Association="Self.FK_Movie_Genre">
-            <End Role="Genre" EntitySet="Genre" />
-            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Genre" EntitySet="Genres" />
+            <End Role="Movie" EntitySet="Movies" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -99,17 +101,17 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GestionFilmDMModelStoreContainer" CdmEntityContainer="GestionFilmDMEntities">
-          <EntitySetMapping Name="Genre">
-            <EntityTypeMapping TypeName="GestionFilmDMModel.Genre">
+        <EntityContainerMapping StorageEntityContainer="GestionFilmModelStoreContainer" CdmEntityContainer="GestionFilmEntities">
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="GestionFilmModel.Genre">
               <MappingFragment StoreEntitySet="Genre">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Movie">
-            <EntityTypeMapping TypeName="GestionFilmDMModel.Movie">
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="GestionFilmModel.Movie">
               <MappingFragment StoreEntitySet="Movie">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -119,7 +121,8 @@
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="Viewed" ColumnName="Viewed" />
-                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Genre_Id" ColumnName="Genre_Id" />
+                <ScalarProperty Name="AddDate" ColumnName="AddDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -137,7 +140,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace TPGestionFilm.ViewModels
 {
-    public class ViewModelMovieList : ViewModelList<GestionFilmDMEntities, Movie>
+    public class ViewModelMovieList : ViewModelList<GestionFilmEntities, Movie>
     {
         #region Fields
 
@@ -46,7 +46,7 @@ namespace TPGestionFilm.ViewModels
 
         #region Constructors
 
-        public ViewModelMovieList(Navigator navigator, GestionFilmDMEntities context) : base(navigator, context)
+        public ViewModelMovieList(Navigator navigator, GestionFilmEntities context) : base(navigator, context)
         {
             this.PropertyChanged += ViewModelMovieList_PropertyChanged;
         }

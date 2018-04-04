@@ -10,7 +10,7 @@ using TPGestionFilm.Services;
 
 namespace TPGestionFilm.ViewModels
 {
-    public class ViewModelMovie : ViewModelEdition<GestionFilmDMEntities, Movie>
+    public class ViewModelMovie : ViewModelEdition<GestionFilmEntities, Movie>
     {
         #region Fields
 
@@ -40,7 +40,7 @@ namespace TPGestionFilm.ViewModels
 
         #region Constructor
 
-        public ViewModelMovie(Navigator navigator, GestionFilmDMEntities context, IMoviePlayer moviePlayer) : base(navigator, context)
+        public ViewModelMovie(Navigator navigator, GestionFilmEntities context, IMoviePlayer moviePlayer) : base(navigator, context)
         {
             _Player = moviePlayer;
             WatchCommand = new DelegateCommand(Watch_Execute, Watch_CanExecute);

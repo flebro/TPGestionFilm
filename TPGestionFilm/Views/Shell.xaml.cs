@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace TPGestionFilm.Views
     /// <summary>
     /// Logique d'interaction pour Shell.xaml
     /// </summary>
-    public partial class Shell : Window
+    public partial class Shell : MetroWindow
     {
         public Shell()
         {

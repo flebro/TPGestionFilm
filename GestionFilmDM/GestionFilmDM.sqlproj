@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{deb98808-a6a9-41b2-9766-492671a44b22}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -65,5 +65,11 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Genre.sql" />
     <Build Include="dbo\Tables\Movie.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="GestionFilmDM.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GestionFilmDM.publish.xml" />
   </ItemGroup>
 </Project>

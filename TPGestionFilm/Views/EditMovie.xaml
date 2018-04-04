@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Content="Retour" Width="Auto" />
+            <Button Content="Retour" Command="{Binding HomeCommand}" Width="Auto" />
             <Button Content="Visionner" Command="{Binding WatchCommand}" Width="Auto" />
             <Button Content="Editer" Command="{Binding StartEditCommand}" Width="Auto" />
             <Button Content="Enregistrer" Command="{Binding SaveCommand}" Width="Auto" />

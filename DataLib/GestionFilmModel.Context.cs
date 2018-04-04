@@ -13,10 +13,10 @@ namespace DataLib
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GestionFilmDMEntities : DbContext
+    public partial class GestionFilmEntities : DbContext
     {
-        public GestionFilmDMEntities()
-            : base("name=GestionFilmDMEntities")
+        public GestionFilmEntities()
+            : base("name=GestionFilmEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace DataLib
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Genre> Genre { get; set; }
-        public virtual DbSet<Movie> Movie { get; set; }
+        public virtual DbSet<Genre> Genres { get; set; }
+        public virtual DbSet<Movie> Movies { get; set; }
     }
 }

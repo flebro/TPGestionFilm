@@ -1,9 +1,10 @@
-﻿<Window x:Class="TPGestionFilm.Views.Shell"
+﻿<MahApps:MetroWindow x:Class="TPGestionFilm.Views.Shell"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TPGestionFilm.Views"
+        xmlns:MahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="Shell" Height="450" Width="800">
     <Grid>
@@ -20,4 +21,4 @@
 
         <ContentPresenter Grid.Row="1" Content="{Binding DisplayedView}" />
     </Grid>
-</Window>
+</MahApps:MetroWindow>

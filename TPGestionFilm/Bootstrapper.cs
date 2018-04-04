@@ -37,7 +37,7 @@ namespace TPGestionFilm
 
             #region Data
 
-            container.RegisterType<GestionFilmDMEntities>();
+            container.RegisterType<GestionFilmEntities>();
 
             #endregion
             

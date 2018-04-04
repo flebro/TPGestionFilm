@@ -18,13 +18,13 @@ namespace DataLib
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genre()
         {
-            this.Movie = new ObservableCollection<Movie>();
+            this.Movies = new ObservableCollection<Movie>();
         }
     
         private int _Id; public int Id { get { return _Id; } set { SetProperty(nameof(Id), ref _Id, value); } }
         private string _Name; public string Name { get { return _Name; } set { SetProperty(nameof(Name), ref _Name, value); } }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        private ObservableCollection<Movie> _Movie; public virtual ObservableCollection<Movie> Movie { get { return _Movie; } set { SetProperty(nameof(Movie), ref _Movie, value); } }
+        private ObservableCollection<Movie> _Movies; public virtual ObservableCollection<Movie> Movies { get { return _Movies; } set { SetProperty(nameof(Movies), ref _Movies, value); } }
     }
 }
