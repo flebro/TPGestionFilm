@@ -4,9 +4,32 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TPGestionFilm.Views"
+             xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <WrapPanel>
-            
-    </WrapPanel>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+      <ColumnDefinition Width="auto"/>
+    </Grid.ColumnDefinitions>
+
+    <DataGrid Grid.Column="0" ItemsSource="{Binding ItemSource}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False" >
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Genres" Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+      </DataGrid.Columns>
+    </DataGrid>
+
+    <StackPanel Grid.Column="1">
+      <Button Style="{DynamicResource CircleButton}" Command="{Binding SaveCommand}" >
+        <icons:PackIconMaterial Kind="ContentSave" />
+      </Button>
+      <Button Style="{DynamicResource CircleButton}" Command="{Binding AddCommand}" >
+        <icons:PackIconMaterial Kind="Plus" />
+      </Button>
+      <Button Style="{DynamicResource CircleButton}" Command="{Binding RemoveCommand}" >
+        <icons:PackIconMaterial Kind="Minus" />
+      </Button>
+    </StackPanel>
+    
+  </Grid>
 </UserControl>

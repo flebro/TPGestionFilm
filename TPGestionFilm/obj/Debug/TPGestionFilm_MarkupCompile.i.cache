@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Workspace\dotNet\repos\TPGestionFilm\TPGestionFilm\App.xaml
-5107853025
+62058227143
 
 201446158576
 30-2062231865
-Resources\ViewsDictionnary.xaml;Views\EditMovie.xaml;Views\ListGenres.xaml;Views\ListMovies.xaml;Views\Shell.xaml;
+Resources\ViewsDictionnary.xaml;Resources\Style.xaml;Views\EditMovie.xaml;Views\ListGenres.xaml;Views\ListMovies.xaml;Views\Shell.xaml;
 
 True
 

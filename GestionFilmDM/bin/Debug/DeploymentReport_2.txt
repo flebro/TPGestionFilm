@@ -1,0 +1,23 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       [dbo].[Genre]
+       [dbo].[Movie]
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Supprimer
+       contrainte sans nom sur [dbo].[Movie] (Contrainte par défaut)
+     Reconstruction de la table
+       [dbo].[Genre] (Table)
+       [dbo].[Movie] (Table)
+
+** Actions de support
+     Supprimer
+       [dbo].[FK_Movie_Genre] (Clé étrangère)
+     Créer
+       [dbo].[FK_Movie_Genre] (Clé étrangère)

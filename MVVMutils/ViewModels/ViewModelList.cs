@@ -17,11 +17,7 @@ namespace MVVMutils.ViewModels
 
         private ObservableCollection<U> _ItemSource;
 
-        #region Commands
-
-        private DelegateCommand _DeleteCommand;
-
-        #endregion
+        private U _SelectedItem;
 
         #endregion
 
@@ -33,15 +29,11 @@ namespace MVVMutils.ViewModels
             protected set { SetProperty(nameof(ItemSource), ref _ItemSource, value); }
         }
 
-        #region Commands
-
-        public DelegateCommand DeleteCommand
+        public U SelectedItem
         {
-            get { return _DeleteCommand; }
-            set { _DeleteCommand = value; }
+            get { return _SelectedItem; }
+            set { SetProperty(nameof(SelectedItem), ref _SelectedItem, value); }
         }
-
-        #endregion
 
         #endregion
 
@@ -49,27 +41,12 @@ namespace MVVMutils.ViewModels
 
         public ViewModelList(Navigator navigator, T context) : base(navigator, context)
         {
-            ItemSource = context.Set<U>().Local;
+            DbSet<U> items = context.Set<U>();
+            items.Load();
+            ItemSource = items.Local;
         }
 
         #endregion
 
-        #region Methods
-
-        #region DeleteCommand
-
-        protected void Delete_Execute(object parameter)
-        {
-
-        }
-
-        protected bool Delete_CanExecute(object parameter)
-        {
-            return true;
-        }
-
-        #endregion
-
-        #endregion
     }
 }

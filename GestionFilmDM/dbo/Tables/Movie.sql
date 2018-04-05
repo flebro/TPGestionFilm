@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Movie] (
-    [Id]          INT            NOT NULL,
+    [Id]          INT            NOT NULL IDENTITY,
     [Name]        NVARCHAR (MAX) NOT NULL,
     [Duration]    INT            NULL,
     [ReleaseDate] DATE           NULL,
