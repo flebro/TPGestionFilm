@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             xmlns:local="clr-namespace:TPGestionFilm.Views"
+             xmlns:converter="clr-namespace:MVVMutils.Converters;assembly=MVVMutils"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -22,16 +22,20 @@
       </Grid.RowDefinitions>
 
       <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
-        <Button Style="{DynamicResource CircleButton}" Command="{Binding WatchCommand}" >
+        <Button Style="{DynamicResource CircleButton}" Command="{Binding WatchCommand}" 
+                Visibility="{Binding IsEnabled, RelativeSource={RelativeSource Self}, Converter={StaticResource booleanToVisibilityConverter}}" >
           <icons:PackIconMaterial Kind="Play" />
         </Button>
-        <Button Style="{DynamicResource CircleButton}" Command="{Binding StartEditCommand}" >
+        <Button Style="{DynamicResource CircleButton}" Command="{Binding StartEditCommand}" 
+                Visibility="{Binding IsEnabled, RelativeSource={RelativeSource Self}, Converter={StaticResource booleanToVisibilityConverter}}" >
           <icons:PackIconMaterial Kind="Pencil" />
         </Button>
-        <Button Style="{DynamicResource CircleButton}" Command="{Binding SelectPosterCommand}" >
+        <Button Style="{DynamicResource CircleButton}" Command="{Binding SelectPosterCommand}" 
+                Visibility="{Binding InEditMode, Converter={StaticResource booleanToVisibilityConverter}}" >
           <icons:PackIconMaterial Kind="Image" />
         </Button>
-        <Button Style="{DynamicResource CircleButton}" Command="{Binding SaveCommand}" >
+        <Button Style="{DynamicResource CircleButton}" Command="{Binding SaveCommand}" 
+                Visibility="{Binding InEditMode, Converter={StaticResource booleanToVisibilityConverter}}" >
           <icons:PackIconMaterial Kind="ContentSave" />
         </Button>
       </StackPanel>
@@ -73,7 +77,9 @@
         <TextBox Grid.Column="0" Text="{Binding Item.Data}" HorizontalAlignment="Stretch" IsEnabled="{Binding InEditMode}"/>
         <Button Grid.Column="1" Content=" ... " Command="{Binding SelectFileCommand}" IsEnabled="{Binding InEditMode}"/>
       </Grid>
-      <ComboBox SelectedItem="{Binding Item.Genre}" ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.Column="1" Grid.Row="2" IsEnabled="{Binding InEditMode}"  Margin="5"/>
+      <ComboBox ItemsSource="{Binding Genres}"
+          SelectedValue="{Binding Item.Genre_Id, Mode=TwoWay}" SelectedValuePath="Id" DisplayMemberPath="Name" 
+                           Grid.Column="1" Grid.Row="2" IsEnabled="{Binding InEditMode}"  Margin="5"/>
       <TextBox Text="{Binding Item.Duration}" Grid.Column="1" Grid.Row="3" IsEnabled="{Binding InEditMode}"  Margin="5"/>
       <DatePicker SelectedDate="{Binding Item.ReleaseDate, TargetNullValue={x:Static system:DateTime.Now}}" Grid.Column="1" Grid.Row="4"  IsEnabled="{Binding InEditMode}"  Margin="5"/>
       <TextBox Text="{Binding Item.Note}" Grid.Column="1" Grid.Row="5" IsEnabled="{Binding InEditMode}" Margin="5"/>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -98,9 +99,9 @@ namespace MVVMutils.ViewModels
         /// <param name="parameter"></param>
         public void SetParameter(object parameter)
         {
-            if (parameter != null && parameter is U item)
+            if (parameter != null && parameter is int id)
             {
-                Item = item;
+                Item = Context.Set<U>().Find(id);
                 Context.Entry(Item).State = EntityState.Detached;
             }
             else
@@ -117,7 +118,7 @@ namespace MVVMutils.ViewModels
 
         private void Save_Execute(object parameter)
         {
-             Context.Entry<U>(Item).State = _Creation ?
+            Context.Entry<U>(Item).State = _Creation ?
                 EntityState.Added :
                 EntityState.Modified;
             Context.SaveChanges();

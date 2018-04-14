@@ -50,7 +50,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converters\BooleanToVisibility.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\TypedConverter.cs" />
     <Compile Include="Core\DelegateCommand.cs" />
     <Compile Include="Core\IViewModelLocator.cs" />

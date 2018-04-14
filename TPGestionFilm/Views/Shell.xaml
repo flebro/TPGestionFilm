@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TPGestionFilm.Views"
+        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Shell" 
+        Title="Gestion Films" 
                      ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
   <i:Interaction.Behaviors>
     <behaviours:BorderlessWindowBehavior/>
@@ -20,12 +20,18 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0">
-            <MenuItem Header="Home" Command="{Binding NavigateHome}"/>
-            <MenuItem Header="Ajouter" Command="{Binding NavigateMovie}"/>
-            <MenuItem Header="Parametres" Command="{Binding NavigateSettings}"/>
-        </Menu>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+      <Button Style="{DynamicResource CircleButton}" Command="{Binding NavigateHome}" ToolTip="Accueil" ToolTipService.ShowOnDisabled="True">
+            <icons:PackIconMaterial Kind="Home" />
+          </Button>
+      <Button Style="{DynamicResource CircleButton}" Command="{Binding NavigateMovie}" ToolTip="Ajouter un film" ToolTipService.ShowOnDisabled="True">
+        <icons:PackIconMaterial Kind="Plus" />
+      </Button>
+      <Button Style="{DynamicResource CircleButton}" Command="{Binding NavigateSettings}" ToolTip="Paramètres" ToolTipService.ShowOnDisabled="True">
+        <icons:PackIconMaterial Kind="Settings" />
+      </Button>
+        </StackPanel>
 
-        <ContentPresenter Grid.Row="1" Content="{Binding DisplayedView}" />
+        <ContentPresenter Grid.Row="1" Content="{Binding DisplayedView}" Margin="10, 0, 10, 0"/>
     </Grid>
 </mahApps:MetroWindow>

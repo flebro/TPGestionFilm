@@ -112,9 +112,9 @@ namespace TPGestionFilm.ViewModels
 
         private void Selection_Execute(object parameter)
         {
-            if (parameter is Movie)
+            if (parameter is Movie movie)
             {
-                Navigator.Navigate<ViewModelMovie>(this, parameter);
+                Navigator.Navigate<ViewModelMovie>(this, movie.Id);
             } else
             {
                 throw new InvalidOperationException();

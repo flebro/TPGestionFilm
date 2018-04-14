@@ -99,6 +99,11 @@ namespace TPGestionFilm.ViewModels
 
         public void Watch_Execute(object parameter)
         {
+            if (!Item.Viewed)
+            {
+                Item.Viewed = true;
+                this.SaveCommand.Execute(null);
+            }
             _Player.startPlaying(Item);
         }
 
@@ -141,13 +146,14 @@ namespace TPGestionFilm.ViewModels
         {
             return item.Name != null &&
                 item.Data != null &&
-                item.Genre != null &&
+                item.Genre_Id != 0 &&
                 File.Exists(item.Data);
         }
 
-        #endregion
-
-        #endregion
-
     }
+
+        #endregion
+
+        #endregion
+
 }

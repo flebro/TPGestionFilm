@@ -1,7 +1,7 @@
 ﻿<Application x:Class="TPGestionFilm.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TPGestionFilm"
+             xmlns:converter="clr-namespace:MVVMutils.Converters;assembly=MVVMutils"
              Startup="Application_Startup">
   <Application.Resources>
     <ResourceDictionary>
@@ -19,6 +19,8 @@
         <ResourceDictionary Source="Resources/DataDictionary.xaml"/>
         <ResourceDictionary Source="Resources/Style.xaml"/>
       </ResourceDictionary.MergedDictionaries>
+      <!-- Converters. -->
+      <converter:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
     </ResourceDictionary>
   </Application.Resources>
 </Application>
