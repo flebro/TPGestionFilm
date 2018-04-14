@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace MVVMutils.ViewModels
 {
+    /// <summary>
+    /// Base pour la gestion d'une liste de modèles en base
+    /// </summary>
+    /// <typeparam name="T">Type du contexte de données</typeparam>
+    /// <typeparam name="U">Type du modèle</typeparam>
     public class ViewModelList<T, U> : ViewModelDbAware<T>
         where T : DbContext
         where U : ObservableObject
@@ -17,22 +22,17 @@ namespace MVVMutils.ViewModels
 
         private ObservableCollection<U> _ItemSource;
 
-        private U _SelectedItem;
-
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Liste des modèles
+        /// </summary>
         public ObservableCollection<U> ItemSource
         {
             get { return _ItemSource; }
             protected set { SetProperty(nameof(ItemSource), ref _ItemSource, value); }
-        }
-
-        public U SelectedItem
-        {
-            get { return _SelectedItem; }
-            set { SetProperty(nameof(SelectedItem), ref _SelectedItem, value); }
         }
 
         #endregion

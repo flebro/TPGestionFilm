@@ -11,11 +11,12 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
         <!-- accent resource -->
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
         <!-- theme resource -->
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
         <!-- Custom resource dictionaries. -->
-        <ResourceDictionary Source="Resources/ViewsDictionnary.xaml"/>
+        <ResourceDictionary Source="Resources/ViewsDictionary.xaml"/>
+        <ResourceDictionary Source="Resources/DataDictionary.xaml"/>
         <ResourceDictionary Source="Resources/Style.xaml"/>
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>

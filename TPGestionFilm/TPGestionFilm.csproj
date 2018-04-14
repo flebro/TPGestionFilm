@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Services\IMoviePlayer.cs" />
+    <Compile Include="Services\SimpleMoviePlayer.cs" />
     <Compile Include="Services\StubMoviePlayer.cs" />
     <Compile Include="UnityViewModelLocator.cs" />
     <Compile Include="ViewModels\ViewModelGenreList.cs" />
@@ -150,7 +151,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Resources\ViewsDictionnary.xaml">
+    <Page Include="Resources\DataDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ViewsDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

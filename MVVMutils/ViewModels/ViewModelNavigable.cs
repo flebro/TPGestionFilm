@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MVVMutils.ViewModels
 {
     /// <summary>
-    ///     Classe de base pour les vue-modèles.
+    ///     Classe de base pour les vue-modèles s'inserrant dans le pattern de navigation.
     /// </summary>
     public abstract class ViewModelNavigable : ObservableObject, IViewModel
     {

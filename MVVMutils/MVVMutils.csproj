@@ -59,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ViewModels\IViewModelParametrable.cs" />
+    <Compile Include="ViewModels\ViewModelListSelectable.cs" />
     <Compile Include="ViewModels\ViewModelNavigable.cs" />
     <Compile Include="ViewModels\ViewModelDbAware.cs" />
     <Compile Include="ViewModels\ViewModelEdition.cs" />

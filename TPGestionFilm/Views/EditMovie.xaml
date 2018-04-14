@@ -5,33 +5,42 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:local="clr-namespace:TPGestionFilm.Views"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-  <Grid>
+  <Grid Margin="20">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="40*"/>
       <ColumnDefinition Width="60*"/>
     </Grid.ColumnDefinitions>
 
-    <StackPanel Grid.Column="0">
+    <Grid Grid.Column="0" VerticalAlignment="Stretch" >
 
-      <Image Source="{Binding Item.Poster}" />
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
 
-      <StackPanel Orientation="Horizontal">
-        <Button  Style="{DynamicResource MetroCircleButtonStyle}" Height="40" Width="40" Command="{Binding WatchCommand}" >
+      <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+        <Button Style="{DynamicResource CircleButton}" Command="{Binding WatchCommand}" >
           <icons:PackIconMaterial Kind="Play" />
         </Button>
-        <Button  Style="{DynamicResource MetroCircleButtonStyle}" Height="40" Width="40" Command="{Binding StartEditCommand}" >
+        <Button Style="{DynamicResource CircleButton}" Command="{Binding StartEditCommand}" >
           <icons:PackIconMaterial Kind="Pencil" />
         </Button>
-        <Button  Style="{DynamicResource MetroCircleButtonStyle}" Height="40" Width="40" Command="{Binding SaveCommand}" >
+        <Button Style="{DynamicResource CircleButton}" Command="{Binding SelectPosterCommand}" >
+          <icons:PackIconMaterial Kind="Image" />
+        </Button>
+        <Button Style="{DynamicResource CircleButton}" Command="{Binding SaveCommand}" >
           <icons:PackIconMaterial Kind="ContentSave" />
         </Button>
       </StackPanel>
-    </StackPanel>
-    
+      
+      <Image Source="{Binding Item.Poster}" Grid.Row="1" />
+    </Grid>
 
-    <Grid Grid.Column="1">
+    <Grid Grid.Column="1" Style="{DynamicResource MovieForm}" >
+
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto"/>
         <ColumnDefinition/>
@@ -44,14 +53,32 @@
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
 
-      <TextBlock Text="Nom" Grid.Column="0" Grid.Row="0"/>
-      <TextBlock Text="Genre" Grid.Column="0" Grid.Row="1"/>
-      <TextBlock Text="Durée" Grid.Column="0" Grid.Row="2"/>
-      <TextBlock Text="Date de Sortie" Grid.Column="0" Grid.Row="3"/>
-      <TextBlock Text="Note" Grid.Column="0" Grid.Row="4"/>
-      <TextBlock Text="Visionné" Grid.Column="0" Grid.Row="5"/>
+      <TextBlock Text="Nom" Grid.Column="0" Grid.Row="0" />
+      <TextBlock Text="Fichier" Grid.Column="0" Grid.Row="1"/>
+      <TextBlock Text="Genre" Grid.Column="0" Grid.Row="2"/>
+      <TextBlock Text="Durée" Grid.Column="0" Grid.Row="3"/>
+      <TextBlock Text="Date de Sortie" Grid.Column="0" Grid.Row="4"/>
+      <TextBlock Text="Note" Grid.Column="0" Grid.Row="5"/>
+      <TextBlock Text="Visionné" Grid.Column="0" Grid.Row="6"/>
+
+      <TextBox Text="{Binding Item.Name}" Grid.Column="1" Grid.Row="0" IsEnabled="{Binding InEditMode}" Margin="5" />
+      <Grid Grid.Column="1" Grid.Row="1"  Margin="5">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Column="0" Text="{Binding Item.Data}" HorizontalAlignment="Stretch" IsEnabled="{Binding InEditMode}"/>
+        <Button Grid.Column="1" Content=" ... " Command="{Binding SelectFileCommand}" IsEnabled="{Binding InEditMode}"/>
+      </Grid>
+      <ComboBox SelectedItem="{Binding Item.Genre}" ItemsSource="{Binding Genres}" DisplayMemberPath="Name" Grid.Column="1" Grid.Row="2" IsEnabled="{Binding InEditMode}"  Margin="5"/>
+      <TextBox Text="{Binding Item.Duration}" Grid.Column="1" Grid.Row="3" IsEnabled="{Binding InEditMode}"  Margin="5"/>
+      <DatePicker SelectedDate="{Binding Item.ReleaseDate, TargetNullValue={x:Static system:DateTime.Now}}" Grid.Column="1" Grid.Row="4"  IsEnabled="{Binding InEditMode}"  Margin="5"/>
+      <TextBox Text="{Binding Item.Note}" Grid.Column="1" Grid.Row="5" IsEnabled="{Binding InEditMode}" Margin="5"/>
+      <CheckBox IsChecked="{Binding Item.Viewed}" Grid.Column="1" Grid.Row="6" IsEnabled="{Binding InEditMode}" Margin="5"/>
+
     </Grid>
 
   </Grid>

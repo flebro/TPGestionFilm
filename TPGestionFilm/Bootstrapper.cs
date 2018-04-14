@@ -12,9 +12,11 @@ using Unity;
 
 namespace TPGestionFilm
 {
+    /// <summary>
+    /// Cette classe gère l'initialisation de l'application et lance l'itnerface principale
+    /// </summary>
     class Bootstrapper
     {
-
         public void Start()
         {
             #region IOC Init
@@ -43,13 +45,7 @@ namespace TPGestionFilm
             
             #region Services
 
-            container.RegisterType<IMoviePlayer, StubMoviePlayer>();
-
-            #endregion
-
-            #region ViewModels
-
-            container.RegisterType<ViewModelMovie>();
+            container.RegisterType<IMoviePlayer, SimpleMoviePlayer>();
 
             #endregion
 

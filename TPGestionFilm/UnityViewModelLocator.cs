@@ -9,6 +9,9 @@ using Unity;
 
 namespace TPGestionFilm
 {
+    /// <summary>
+    /// Implémentation de IViewModelLocator se basant sur le framework Unity
+    /// </summary>
     public class UnityViewModelLocator : IViewModelLocator
     {
         #region Fields

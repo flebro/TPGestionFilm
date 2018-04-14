@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace TPGestionFilm.ViewModels
 {
-    public class ViewModelGenreList : ViewModelList<GestionFilmEntities, Genre>
+    /// <summary>
+    /// Vue modele assurant la gestion des genres connus par l'application
+    /// </summary>
+    public class ViewModelGenreList : ViewModelListSelectable<GestionFilmEntities, Genre>
     {
         #region Fields
 
@@ -23,18 +26,27 @@ namespace TPGestionFilm.ViewModels
 
         #region Properties
 
+        /// <summary>
+        /// Commande pour sauvegarder la liste des genres
+        /// </summary>
         public DelegateCommand SaveCommand
         {
             get { return _SaveCommand; }
             set { SetProperty(nameof(SaveCommand), ref _SaveCommand, value); }
         }
 
+        /// <summary>
+        /// Commande pour ajouter un nouveau genre
+        /// </summary>
         public DelegateCommand AddCommand
         {
             get { return _AddCommand; }
             set { SetProperty(nameof(AddCommand), ref _AddCommand, value); }
         }
 
+        /// <summary>
+        /// Commande pour effacer un genre
+        /// </summary>
         public DelegateCommand RemoveCommand
         {
             get { return _RemoveCommand; }

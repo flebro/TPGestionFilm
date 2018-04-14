@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMutils.ViewModels
 {
+    /// <summary>
+    /// Définit une vue modèle paramétrable
+    /// </summary>
     public interface IViewModelParametrable : IViewModel
     {
-        void setParameter(object parameter);
+        void SetParameter(object parameter);
     }
 }

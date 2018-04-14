@@ -8,6 +8,11 @@ using System.Windows.Data;
 
 namespace MVVMutils.Converters
 {
+    /// <summary>
+    /// Implémetation abstraite de IValueConverter afin de failiter la création de converter et plus particulièrement en assurer le Safe Typing
+    /// </summary>
+    /// <typeparam name="U">Type source</typeparam>
+    /// <typeparam name="T">Type de destination</typeparam>
     public abstract class TypedConverter<U, T> : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

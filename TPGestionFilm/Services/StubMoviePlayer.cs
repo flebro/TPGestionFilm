@@ -8,6 +8,9 @@ using DataLib;
 
 namespace TPGestionFilm.Services
 {
+    /// <summary>
+    /// Mock implémentation du IMoviePlayer pour le débuggage
+    /// </summary>
     public class StubMoviePlayer : IMoviePlayer
     {
         public void startPlaying(Movie movie)

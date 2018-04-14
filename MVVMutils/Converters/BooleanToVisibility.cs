@@ -9,6 +9,9 @@ using System.Windows.Data;
 
 namespace MVVMutils.Converters
 {
+    /// <summary>
+    /// Converti un booleen en visibilité 
+    /// </summary>
     public class BooleanToVisibility : TypedConverter<bool, Visibility>
     {
         protected override Visibility Convert(bool value, object parameter, CultureInfo culture)
